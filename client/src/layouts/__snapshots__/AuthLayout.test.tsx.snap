@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App Component renders the App Component 1`] = `
+exports[`AuthLayout Component renders the AuthLayout Component 1`] = `
 <header
-  className="css-z2vd3n"
+  className="css-103o8ot"
 >
   <a
     href="/"
@@ -13,5 +13,12 @@ exports[`App Component renders the App Component 1`] = `
       src="https://minimal-kit-react.vercel.app/static/logo.svg"
     />
   </a>
+  <p
+    className="MuiTypography-root MuiTypography-body2 css-128dl2h-MuiTypography-root"
+  >
+    <h1>
+      Some content
+    </h1>
+  </p>
 </header>
 `;

@@ -3,16 +3,16 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import { store } from "../store";
-import Label, { Color, Variant } from "./Label";
+import ScrollBar from "./ScrollBar";
 
-describe("Label Component", () => {
-  test("renders the Label Component", () => {
+describe("ScrollBar Component", () => {
+  test("renders the ScrollBar Component", () => {
     const tree = create(
       <Provider store={store}>
         <Router>
-          <Label color={Color.default} variant={Variant.ghost}>
-            Label Text
-          </Label>
+          <ScrollBar title="ScrollBar Title">
+            <h1>Employee</h1>
+          </ScrollBar>
         </Router>
       </Provider>
     );

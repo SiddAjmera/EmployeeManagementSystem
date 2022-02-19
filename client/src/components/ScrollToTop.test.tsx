@@ -3,16 +3,14 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import { store } from "../store";
-import Label, { Color, Variant } from "./Label";
+import ScrollToTop from "./ScrollToTop";
 
-describe("Label Component", () => {
-  test("renders the Label Component", () => {
+describe("ScrollToTop Component", () => {
+  test("renders the ScrollToTop Component", () => {
     const tree = create(
       <Provider store={store}>
         <Router>
-          <Label color={Color.default} variant={Variant.ghost}>
-            Label Text
-          </Label>
+          <ScrollToTop />
         </Router>
       </Provider>
     );

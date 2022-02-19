@@ -2,17 +2,20 @@ import { create } from "react-test-renderer";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 
+import ThemeConfig from "../theme";
 import { store } from "../store";
-import Label, { Color, Variant } from "./Label";
+import AuthLayout from "./AuthLayout";
 
-describe("Label Component", () => {
-  test("renders the Label Component", () => {
+describe("AuthLayout Component", () => {
+  test("renders the AuthLayout Component", () => {
     const tree = create(
       <Provider store={store}>
         <Router>
-          <Label color={Color.default} variant={Variant.ghost}>
-            Label Text
-          </Label>
+          <ThemeConfig>
+            <AuthLayout>
+              <h1>Some content</h1>
+            </AuthLayout>
+          </ThemeConfig>
         </Router>
       </Provider>
     );

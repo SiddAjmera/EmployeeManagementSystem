@@ -2,6 +2,7 @@ import { create } from "react-test-renderer";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 
+import ThemeConfig from "../theme";
 import { store } from "../store";
 import Modal from "./Modal";
 
@@ -10,10 +11,20 @@ xdescribe("Modal Component", () => {
     const tree = create(
       <Provider store={store}>
         <Router>
-          <Modal open={true} actions={[]}>
-            <h1>Modal Title</h1>
-            <p>Modal Content</p>
-          </Modal>
+          <ThemeConfig>
+            <Modal
+              title="Modal Title"
+              setOpen={(
+                event: {},
+                reason: "backdropClick" | "escapeKeyDown"
+              ) => {}}
+              open={true}
+              actions={[]}
+            >
+              <h1>Modal Title</h1>
+              <p>Modal Content</p>
+            </Modal>
+          </ThemeConfig>
         </Router>
       </Provider>
     );

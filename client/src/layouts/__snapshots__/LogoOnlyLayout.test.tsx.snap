@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App Component renders the App Component 1`] = `
+exports[`LogoOnlyLayout Component renders the LogoOnlyLayout Component 1`] = `
 <header
   className="css-z2vd3n"
 >

@@ -3,16 +3,14 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import { store } from "../store";
-import Label, { Color, Variant } from "./Label";
+import SearchNotFound from "./SearchNotFound";
 
-describe("Label Component", () => {
-  test("renders the Label Component", () => {
+describe("SearchNotFound Component", () => {
+  test("renders the SearchNotFound Component", () => {
     const tree = create(
       <Provider store={store}>
         <Router>
-          <Label color={Color.default} variant={Variant.ghost}>
-            Label Text
-          </Label>
+          <SearchNotFound searchQuery="Search Query" />
         </Router>
       </Provider>
     );
