@@ -1,16 +1,16 @@
 import { create } from "react-test-renderer";
 import { BrowserRouter as Router } from "react-router-dom";
-
 import { Provider } from "react-redux";
-import { store } from "./store";
-import App from "./App";
 
-describe("App Component", () => {
-  test("renders the App Component", () => {
+import { store } from "../store";
+import Page from "./Page";
+
+describe("Page Component", () => {
+  test("renders the Page Component", () => {
     const tree = create(
       <Provider store={store}>
         <Router>
-          <App />
+          <Page open={true} navConfig={[]} />
         </Router>
       </Provider>
     );

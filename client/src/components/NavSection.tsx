@@ -1,12 +1,9 @@
 import { useState } from "react";
-import { Icon } from "@iconify/react";
 import {
   NavLink as RouterLink,
   matchPath,
   useLocation,
 } from "react-router-dom";
-import arrowIosForwardFill from "@iconify/icons-eva/arrow-ios-forward-fill";
-import arrowIosDownwardFill from "@iconify/icons-eva/arrow-ios-downward-fill";
 import { alpha, useTheme, styled } from "@mui/material/styles";
 import {
   Box,
@@ -91,11 +88,6 @@ function NavItem({ item, active }: NavItemProps) {
           <ListItemIconStyle>{icon && icon}</ListItemIconStyle>
           <ListItemText disableTypography primary={title} />
           {info && info}
-          <Box
-            component={Icon}
-            icon={open ? arrowIosDownwardFill : arrowIosForwardFill}
-            sx={{ width: 16, height: 16, ml: 1 }}
-          />
         </ListItemStyle>
 
         <Collapse in={open} timeout="auto" unmountOnExit>

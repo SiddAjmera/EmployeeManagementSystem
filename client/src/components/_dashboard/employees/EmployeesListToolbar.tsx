@@ -1,6 +1,5 @@
-import { Icon } from "@iconify/react";
-import searchFill from "@iconify/icons-eva/search-fill";
-import trash2Fill from "@iconify/icons-eva/trash-2-fill";
+import SearchIcon from "@mui/icons-material/Search";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { styled } from "@mui/material/styles";
 import {
   Box,
@@ -77,11 +76,7 @@ export default function EmployeesListToolbar({
           placeholder="Search employee..."
           startAdornment={
             <InputAdornment position="start">
-              <Box
-                component={Icon}
-                icon={searchFill}
-                sx={{ color: "text.disabled" }}
-              />
+              <Box component={SearchIcon} sx={{ color: "text.disabled" }} />
             </InputAdornment>
           }
         />
@@ -90,7 +85,7 @@ export default function EmployeesListToolbar({
       {numSelected > 0 ? (
         <Tooltip title="Delete" onClick={() => setOpen(true)}>
           <IconButton>
-            <Icon icon={trash2Fill} />
+            <DeleteOutlineIcon />
           </IconButton>
         </Tooltip>
       ) : null}

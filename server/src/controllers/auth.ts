@@ -27,7 +27,7 @@ export async function login(req: Request, res: Response) {
     const token = jwt.sign({ id: employee._id }, JWT_SECRET, {
       expiresIn: 3600,
     });
-    if (!token) throw Error("Couldnt sign the token");
+    if (!token) throw Error("Couldn't sign the token");
 
     res.status(200).json({
       token,
@@ -53,7 +53,7 @@ export async function register(req: Request, res: Response) {
 
   try {
     const employee = await Employee.findOne({ email });
-    if (employee) throw Error("employee already exists");
+    if (employee) throw Error("Employee already exists");
 
     const salt = await bcrypt.genSalt(10);
     if (!salt) throw Error("Something went wrong with bcrypt");
@@ -93,10 +93,9 @@ export async function register(req: Request, res: Response) {
 
 export async function employee(req: AuthenticatedRequest, res: Response) {
   try {
-    const employee = await Employee.findById(req.employee.id).select(
-      "-password"
-    );
+    const employee = await Employee.findById(req.employee.id);
     if (!employee) throw Error("Employee does not exist");
+    delete employee.password;
     res.json(employee);
   } catch (e) {
     res.status(400).json({ msg: e.message });

@@ -1,5 +1,4 @@
-import { Icon } from "@iconify/react";
-import menu2Fill from "@iconify/icons-eva/menu-2-fill";
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import { alpha, styled } from "@mui/material/styles";
 import { Box, Stack, AppBar, Toolbar, IconButton } from "@mui/material";
 
@@ -45,7 +44,7 @@ export default function DashboardNavbar({
             onClick={onOpenSidebar}
             sx={{ mr: 1, color: "text.primary" }}
           >
-            <Icon icon={menu2Fill} />
+            <MenuOpenIcon />
           </IconButton>
         </MHidden>
         <Box sx={{ flexGrow: 1 }} />

@@ -9,7 +9,9 @@ export async function login(email: string, password: string) {
     });
     const response = await loginResponse.data;
     if (response.token) {
+      console.log("response: ", response);
       axios.defaults.headers.common["Authorization"] = response.token;
+      localStorage.setItem("token", response.token);
     }
     return response;
   } catch (error: any) {
@@ -30,11 +32,11 @@ export async function register(employee: Employee) {
   }
 }
 
-export async function loggedInUser(token: string) {
+export async function loggedInUser() {
   try {
     const loggedInUserResponse = await axios.get("auth/employee");
     const response = await loggedInUserResponse.data;
-    return { employee: response, token };
+    return { employee: response };
   } catch (error: any) {
     return error.response.data;
   }

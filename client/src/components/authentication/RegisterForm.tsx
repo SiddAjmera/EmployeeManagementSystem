@@ -1,9 +1,8 @@
 import * as Yup from "yup";
 import { useState } from "react";
-import { Icon } from "@iconify/react";
 import { useFormik, Form, FormikProvider } from "formik";
-import eyeFill from "@iconify/icons-eva/eye-fill";
-import eyeOffFill from "@iconify/icons-eva/eye-off-fill";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from "react-router-dom";
 // material
 import {
@@ -175,7 +174,11 @@ export default function RegisterForm() {
                         edge="end"
                         onClick={() => setShowPassword((prev) => !prev)}
                       >
-                        <Icon icon={showPassword ? eyeFill : eyeOffFill} />
+                        {showPassword ? (
+                          <VisibilityIcon />
+                        ) : (
+                          <VisibilityOffIcon />
+                        )}
                       </IconButton>
                     </InputAdornment>
                   ),

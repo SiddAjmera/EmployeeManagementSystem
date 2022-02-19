@@ -1,8 +1,8 @@
-import { Icon } from "@iconify/react";
 import { useRef, useState } from "react";
-import editFill from "@iconify/icons-eva/edit-fill";
-import trash2Outline from "@iconify/icons-eva/trash-2-outline";
-import moreVerticalFill from "@iconify/icons-eva/more-vertical-fill";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+
 // material
 import {
   Menu,
@@ -27,7 +27,7 @@ export default function EmployeesMoreMenu({
   return (
     <>
       <IconButton ref={ref} onClick={() => setIsOpen(true)}>
-        <Icon icon={moreVerticalFill} width={20} height={20} />
+        <MoreVertIcon width={24} height={24} />
       </IconButton>
 
       <Menu
@@ -48,7 +48,7 @@ export default function EmployeesMoreMenu({
           }}
         >
           <ListItemIcon>
-            <Icon icon={trash2Outline} width={24} height={24} />
+            <DeleteIcon width={24} height={24} />
           </ListItemIcon>
           <ListItemText
             primary="Delete"
@@ -64,7 +64,7 @@ export default function EmployeesMoreMenu({
           }}
         >
           <ListItemIcon>
-            <Icon icon={editFill} width={24} height={24} />
+            <EditIcon width={24} height={24} />
           </ListItemIcon>
           <ListItemText
             primary="Edit"

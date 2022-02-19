@@ -1,15 +1,10 @@
-import { Icon, IconifyIcon } from "@iconify/react";
-import peopleFill from "@iconify/icons-eva/people-fill";
-
-const getIcon = (name: IconifyIcon) => (
-  <Icon icon={name} width={22} height={22} />
-);
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 
 const sidebarConfig = [
   {
     title: "employees",
     path: "/dashboard/employees",
-    icon: getIcon(peopleFill),
+    icon: <PeopleAltIcon />,
   },
 ];
 

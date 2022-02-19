@@ -1,7 +1,6 @@
 import { filter } from "lodash";
-import { Icon } from "@iconify/react";
 import { useState } from "react";
-import plusFill from "@iconify/icons-eva/plus-fill";
+import AddIcon from "@mui/icons-material/Add";
 import {
   Card,
   Table,
@@ -200,7 +199,7 @@ export default function Employees() {
               dispatch(setEmployeeInQuestion({ employee: undefined }));
               setOpenEmployeeFormModal(true);
             }}
-            startIcon={<Icon icon={plusFill} />}
+            startIcon={<AddIcon />}
           >
             Add New Employee
           </Button>

@@ -8,11 +8,9 @@ import Register from "./pages/Register";
 import Employees from "./pages/Employees";
 import NotFound from "./pages/Page404";
 import { useAppSelector } from "./store/hooks";
-import { getLoggedInUserAsync, selectToken } from "./store/slices/auth";
+import { initDataIfAuthenticated, selectToken } from "./store/slices/auth";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import axios from "./store/apis/axios";
-import { getEmployeesAsync } from "./store/slices/employee";
 
 export default function Router() {
   const token = useAppSelector(selectToken);
@@ -20,9 +18,7 @@ export default function Router() {
 
   useEffect(() => {
     if (token) {
-      axios.defaults.headers.common["Authorization"] = token;
-      dispatch(getLoggedInUserAsync(token));
-      dispatch(getEmployeesAsync());
+      dispatch(initDataIfAuthenticated());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);

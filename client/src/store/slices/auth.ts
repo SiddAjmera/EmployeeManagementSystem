@@ -1,8 +1,10 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { RootState } from "../../store";
+import axios from "../apis/axios";
+import { RootState, AppThunk } from "../../store";
 import { AsyncStatus } from "../common";
 import { Employee } from "../../models/employee";
+import { getEmployeesAsync } from "./employee";
 import { loggedInUser, login, register } from "../apis/auth";
 
 export interface AuthState {
@@ -53,8 +55,8 @@ export const registerAsync = createAsyncThunk(
 
 export const getLoggedInUserAsync = createAsyncThunk(
   "auth/loggedInUser",
-  async (token: string) => {
-    const response = await loggedInUser(token);
+  async () => {
+    const response = await loggedInUser();
     return response;
   }
 );
@@ -72,8 +74,13 @@ function postAuthSuccess(
   state.status = AsyncStatus.IDLE;
   state.employee = employee;
   state.error = msg;
-  state.token = token;
-  localStorage.setItem("token", token);
+  if (token) {
+    state.token = token;
+    axios.defaults.headers.common["Authorization"] = token;
+  } else if (!state.token) {
+    state.token = undefined;
+    localStorage.removeItem("token");
+  }
 }
 
 export const authSlice = createSlice({
@@ -120,5 +127,16 @@ export const selectEmployee = (state: RootState) => state.auth.employee;
 export const selectRememberMe = (state: RootState) => state.auth.rememberMe;
 export const selectToken = (state: RootState) => state.auth.token;
 export const selectError = (state: RootState) => state.auth.error;
+
+// We can also write thunks by hand, which may contain both sync and async logic.
+// Here's an example of conditionally dispatching actions based on current state.
+export const initDataIfAuthenticated = (): AppThunk => (dispatch, getState) => {
+  const token = selectToken(getState()) || localStorage.getItem("token");
+  if (token) {
+    axios.defaults.headers.common["Authorization"] = token;
+    dispatch(getLoggedInUserAsync());
+    dispatch(getEmployeesAsync());
+  }
+};
 
 export default authSlice.reducer;

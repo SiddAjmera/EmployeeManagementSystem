@@ -74,7 +74,11 @@ export async function remove(req: Request, res: Response) {
     const removed = await employee.remove();
     if (!removed)
       throw Error("Something went wrong while trying to delete the employee");
-    res.status(200).json({ success: true, employee });
+    delete employee.remove;
+    res.status(200).json({
+      success: true,
+      employee,
+    });
   } catch (e) {
     res.status(400).json({ msg: e.message, success: false });
   }
