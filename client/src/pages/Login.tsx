@@ -49,15 +49,6 @@ export default function Login() {
         </Link>
       </AuthLayout>
 
-      <MHidden width={Width.mdDown}>
-        <SectionStyle>
-          <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-            Hi, Welcome Back
-          </Typography>
-          <PageIllustration src={LoginIllustration} alt="login" />
-        </SectionStyle>
-      </MHidden>
-
       <Container maxWidth="sm">
         <ContentStyle>
           <Stack sx={{ mb: 5 }}>
@@ -81,6 +72,15 @@ export default function Login() {
           </MHidden>
         </ContentStyle>
       </Container>
+
+      <MHidden width={Width.mdDown}>
+        <SectionStyle>
+          <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
+            Hi, Welcome Back
+          </Typography>
+          <PageIllustration src={LoginIllustration} alt="login" />
+        </SectionStyle>
+      </MHidden>
     </RootStyle>
   );
 }

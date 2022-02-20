@@ -88,7 +88,7 @@ export default function RegisterForm() {
       );
       if (token) {
         setMessage("Registration Successful!!");
-        navigate("/dashboard/employees", { replace: true });
+        navigate("/dashboard", { replace: true });
       } else {
         setMessage(`Error registering!${error ? " " + error : ""}`);
       }

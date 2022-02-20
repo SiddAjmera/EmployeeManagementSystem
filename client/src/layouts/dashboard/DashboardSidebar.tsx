@@ -2,16 +2,24 @@ import { Box, Link, Drawer, Typography } from "@mui/material";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { useEffect } from "react";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 
 import { MHidden, Width } from "../../components/@material-extend";
 import { selectEmployee } from "../../store/slices/auth";
 import { useAppSelector } from "../../store/hooks";
 import Logo from "../../components/Logo";
 import NavSection from "../../components/NavSection";
-import sidebarConfig from "./SidebarConfig";
 import UserAvatar from "../../components/UserAvatar";
 
 const DRAWER_WIDTH = 280;
+
+const sidebarConfig = [
+  {
+    title: "employees",
+    path: "/dashboard",
+    icon: <PeopleAltIcon />,
+  },
+];
 
 const RootStyle = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("lg")]: {

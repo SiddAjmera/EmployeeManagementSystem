@@ -1,13 +1,13 @@
+import { Box, Card, Link, Container, Typography } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
-import { Box, Card, Link, Container, Typography } from "@mui/material";
 
+import { MHidden, Width } from "../components/@material-extend";
 import AuthLayout from "../layouts/AuthLayout";
 import Page from "../components/Page";
-import { MHidden, Width } from "../components/@material-extend";
+import PageIllustration from "../components/PageIllustration";
 import RegisterForm from "../components/authentication/RegisterForm";
 import RegisterIllustration from "../assets/register.svg";
-import PageIllustration from "../components/PageIllustration";
 
 const RootStyle = styled(Page)(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
@@ -49,15 +49,6 @@ export default function Register() {
         </Link>
       </AuthLayout>
 
-      <MHidden width={Width.mdDown}>
-        <SectionStyle>
-          <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-            Manage employees more effectively with EMS
-          </Typography>
-          <PageIllustration alt="register" src={RegisterIllustration} />
-        </SectionStyle>
-      </MHidden>
-
       <Container>
         <ContentStyle>
           <Box sx={{ mb: 5 }}>
@@ -97,6 +88,15 @@ export default function Register() {
           </MHidden>
         </ContentStyle>
       </Container>
+
+      <MHidden width={Width.mdDown}>
+        <SectionStyle>
+          <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
+            Manage employees more effectively with EMS
+          </Typography>
+          <PageIllustration alt="register" src={RegisterIllustration} />
+        </SectionStyle>
+      </MHidden>
     </RootStyle>
   );
 }

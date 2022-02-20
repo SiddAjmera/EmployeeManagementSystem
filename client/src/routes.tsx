@@ -1,16 +1,14 @@
-import { Navigate, useRoutes } from "react-router-dom";
-
-import DashboardLayout from "./layouts/dashboard";
-import LogoOnlyLayout from "./layouts/LogoOnlyLayout";
-
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Employees from "./pages/Employees";
-import NotFound from "./pages/Page404";
-import { useAppSelector } from "./store/hooks";
-import { initDataIfAuthenticated, selectToken } from "./store/slices/auth";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Navigate, useRoutes } from "react-router-dom";
+
+import { initDataIfAuthenticated, selectToken } from "./store/slices/auth";
+import { useAppSelector } from "./store/hooks";
+import DashboardLayout from "./layouts/dashboard";
+import Employees from "./pages/Employees";
+import Login from "./pages/Login";
+import LogoOnlyLayout from "./layouts/LogoOnlyLayout";
+import Register from "./pages/Register";
 
 export default function Router() {
   const token = useAppSelector(selectToken);
@@ -27,26 +25,21 @@ export default function Router() {
     {
       path: "/dashboard",
       element: token ? <DashboardLayout /> : <Navigate to="/login" />,
-      children: [
-        { element: <Navigate to="/dashboard/employees" replace /> },
-        { path: "employees", element: <Employees /> },
-      ],
+      children: [{ path: "", element: <Employees /> }],
     },
     {
       path: "/",
       element: token ? (
-        <Navigate to="/dashboard/employees" replace />
+        <Navigate to="/dashboard" replace />
       ) : (
         <LogoOnlyLayout />
       ),
       children: [
         { path: "login", element: <Login /> },
         { path: "register", element: <Register /> },
-        { path: "404", element: <NotFound /> },
-        { path: "/", element: <Navigate to="/dashboard" /> },
-        { path: "*", element: <Navigate to="/404" /> },
+        { path: "*", element: <Navigate to="/login" /> },
       ],
     },
-    { path: "*", element: <Navigate to="/404" replace /> },
+    { path: "*", element: <Navigate to="/login" replace /> },
   ]);
 }

@@ -75,7 +75,7 @@ exports[`DashboardSidebar Component renders the DashboardSidebar Component 1`] =
         >
           <a
             className="MuiListItemButton-root MuiButtonBase-root css-1246w3t-MuiButtonBase-root-MuiListItemButton-root"
-            href="/dashboard/employees"
+            href="/dashboard"
             onBlur={[Function]}
             onClick={[Function]}
             onContextMenu={[Function]}

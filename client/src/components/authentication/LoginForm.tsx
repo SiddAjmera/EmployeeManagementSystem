@@ -55,7 +55,7 @@ export default function LoginForm() {
       await dispatch(loginAsync({ email, password }));
       if (token) {
         setMessage("Logged in!");
-        navigate("/dashboard/employees", { replace: true });
+        navigate("/dashboard", { replace: true });
       } else {
         setMessage(`Error logging in!${error ? " " + error : ""}`);
       }
