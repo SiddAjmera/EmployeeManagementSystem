@@ -35,7 +35,7 @@ const SearchStyle = styled(OutlinedInput)(
   })
 );
 
-interface EmployeesListToolbarProps {
+interface EmployeeTableToolbarProps {
   numSelected: number;
   filterName: string;
   onFilterName: (
@@ -44,12 +44,12 @@ interface EmployeesListToolbarProps {
   handleMultipleUsersDelete: Function;
 }
 
-export default function EmployeesListToolbar({
+export default function EmployeeTableToolbar({
   numSelected,
   filterName,
   onFilterName,
   handleMultipleUsersDelete,
-}: EmployeesListToolbarProps) {
+}: EmployeeTableToolbarProps) {
   const [open, setOpen] = useState(false);
 
   return (

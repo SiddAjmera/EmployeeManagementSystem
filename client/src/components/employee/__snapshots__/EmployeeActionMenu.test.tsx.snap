@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EmployeesMoreMenu Component renders the EmployeesMoreMenu Component 1`] = `
+exports[`EmployeeActionMenu Component renders the EmployeeActionMenu Component 1`] = `
 <button
   className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
   disabled={false}

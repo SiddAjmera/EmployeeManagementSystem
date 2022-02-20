@@ -1,11 +1,11 @@
 import { create } from "react-test-renderer";
 
-import EmployeesListHead, { Order } from "./EmployeesListHead";
+import EmployeeTableHeader, { Order } from "./EmployeeTableHeader";
 
-describe("EmployeesListHead Component", () => {
-  test("renders the EmployeesListHead Component", () => {
+describe("EmployeeTableHeader Component", () => {
+  test("renders the EmployeeTableHeader Component", () => {
     const tree = create(
-      <EmployeesListHead
+      <EmployeeTableHeader
         order={Order.asc}
         orderBy="name"
         rowCount={5}

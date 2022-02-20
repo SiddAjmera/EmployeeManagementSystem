@@ -23,9 +23,9 @@ import {
   EmployeesListHead,
   EmployeesListToolbar,
   EmployeesMoreMenu,
-} from "../components/employees";
-import { Order } from "../components/employees/EmployeesListHead";
-import EmployeeForm from "../components/employees/EmployeeForm";
+} from "../components/employee";
+import { Order } from "../components/employee/EmployeeTableHeader";
+import EmployeeForm from "../components/employee/EmployeeForm";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import {
   deleteEmployeeAsync,

@@ -6,9 +6,9 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { MHidden, Width } from "../components/@material-extend";
+import MHidden, { Width } from "../components/HideForWidth";
 import AuthLayout from "../layouts/AuthLayout";
-import LoginForm from "../components/authentication/LoginForm";
+import LoginForm from "../components/auth/LoginForm";
 import LoginIllustration from "../assets/login.svg";
 import PageIllustration from "../components/PageIllustration";
 

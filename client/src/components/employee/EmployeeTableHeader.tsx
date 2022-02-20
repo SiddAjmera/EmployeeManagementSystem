@@ -17,7 +17,7 @@ interface HeadLabel {
   alignRight?: boolean;
 }
 
-interface EmployeesListHeadProps {
+interface EmployeeTableHeaderProps {
   order: Order;
   orderBy: string;
   rowCount: number;
@@ -30,7 +30,7 @@ interface EmployeesListHeadProps {
   ) => void;
 }
 
-export default function EmployeesListHead({
+export default function EmployeeTableHeader({
   order,
   orderBy,
   rowCount,
@@ -38,7 +38,7 @@ export default function EmployeesListHead({
   numSelected,
   onRequestSort,
   onSelectAllClick,
-}: EmployeesListHeadProps) {
+}: EmployeeTableHeaderProps) {
   const createSortHandler = (property: string) => (event: any) => {
     onRequestSort(event, property);
   };

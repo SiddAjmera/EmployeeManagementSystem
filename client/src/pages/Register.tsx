@@ -6,10 +6,10 @@ import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 
-import { MHidden, Width } from "../components/@material-extend";
+import MHidden, { Width } from "../components/HideForWidth";
 import AuthLayout from "../layouts/AuthLayout";
 import PageIllustration from "../components/PageIllustration";
-import RegisterForm from "../components/authentication/RegisterForm";
+import RegisterForm from "../components/auth/RegisterForm";
 import RegisterIllustration from "../assets/register.svg";
 
 const RootStyle = styled("div")(({ theme }) => ({

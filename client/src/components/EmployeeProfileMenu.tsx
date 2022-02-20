@@ -19,16 +19,16 @@ const ArrowStyle = styled("span")(({ theme }) => ({
   },
 }));
 
-interface MenuPopoverProps {
+interface EmployeeProfileMenuProps {
   [key: string]: any;
 }
 
-export default function MenuPopover({
+export default function EmployeeProfileMenu({
   children,
   sx,
   open,
   ...other
-}: MenuPopoverProps) {
+}: EmployeeProfileMenuProps) {
   return (
     <Popover
       anchorOrigin={{ vertical: "bottom", horizontal: "right" }}

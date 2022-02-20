@@ -14,15 +14,15 @@ export enum Width {
   xlUp = "xlUp",
 }
 
-interface MHiddenProps {
+interface HideForWidthProps {
   width: Width;
   children?: React.ReactNode;
 }
 
-export default function MHidden({
+export default function HideForWidth({
   width,
   children,
-}: MHiddenProps): ReactElement<any> {
+}: HideForWidthProps): ReactElement<any> {
   const breakpoint = width.substring(0, 2) as Breakpoint;
 
   const hiddenUp = useMediaQuery((theme: Theme) =>

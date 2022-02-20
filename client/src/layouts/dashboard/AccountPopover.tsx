@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 
 import { logout, selectEmployee } from "../../store/slices/auth";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import MenuPopover from "../../components/MenuPopover";
+import EmployeeProfileMenu from "../../components/EmployeeProfileMenu";
 import UserAvatar from "../../components/UserAvatar";
 
 export default function AccountPopover() {
@@ -47,7 +47,7 @@ export default function AccountPopover() {
         <UserAvatar name={account?.name} surname={account?.surname} />
       </IconButton>
 
-      <MenuPopover
+      <EmployeeProfileMenu
         open={open}
         onClose={handleClose}
         anchorEl={anchorRef.current}
@@ -77,7 +77,7 @@ export default function AccountPopover() {
             Logout
           </Button>
         </Box>
-      </MenuPopover>
+      </EmployeeProfileMenu>
     </>
   );
 }

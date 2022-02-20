@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EmployeesListToolbar Component renders the EmployeesListToolbar Component 1`] = `
+exports[`EmployeeTableToolbar Component renders the EmployeeTableToolbar Component 1`] = `
 <div
   className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-pux2q4-MuiToolbar-root"
 >

@@ -8,15 +8,15 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
-interface EmployeesMoreMenuProps {
+interface EmployeeActionMenuProps {
   handleEdit: Function;
   handleDelete: Function;
 }
 
-export default function EmployeesMoreMenu({
+export default function EmployeeActionMenu({
   handleEdit,
   handleDelete,
-}: EmployeesMoreMenuProps) {
+}: EmployeeActionMenuProps) {
   const ref = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 

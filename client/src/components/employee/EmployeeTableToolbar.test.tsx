@@ -1,11 +1,11 @@
 import { create } from "react-test-renderer";
 
-import EmployeesListToolbar from "./EmployeesListToolbar";
+import EmployeeTableToolbar from "./EmployeeTableToolbar";
 
-describe("EmployeesListToolbar Component", () => {
-  test("renders the EmployeesListToolbar Component", () => {
+describe("EmployeeTableToolbar Component", () => {
+  test("renders the EmployeeTableToolbar Component", () => {
     const tree = create(
-      <EmployeesListToolbar
+      <EmployeeTableToolbar
         numSelected={10}
         filterName={"filterName"}
         handleMultipleUsersDelete={() => {}}
