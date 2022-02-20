@@ -7,3 +7,10 @@ export interface Employee {
   address?: string;
   title?: string;
 }
+
+export interface EmployeesResponse {
+  employees?: Array<Employee | string>;
+  employee?: Employee;
+  msg?: string;
+  success?: boolean;
+}

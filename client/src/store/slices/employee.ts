@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { RootState } from "../../store";
 import { AsyncStatus } from "../common";
-import { Employee } from "../../models/employee";
+import { Employee, EmployeesResponse } from "../../models/employee";
 import {
   getEmployees,
   getEmployee,
@@ -67,12 +67,6 @@ export const deleteEmployeesAsync = createAsyncThunk(
   }
 );
 
-interface EmployeesResponse {
-  employees?: Array<Employee>;
-  employee?: Employee;
-  msg: string;
-}
-
 interface SetEmployeePayload {
   employee?: Employee;
 }
@@ -103,7 +97,7 @@ export const authSlice = createSlice({
           { payload: { employees, msg } }: PayloadAction<EmployeesResponse>
         ) => {
           state.status = AsyncStatus.IDLE;
-          state.employees = employees as Array<Employee>;
+          state.employees = employees ? (employees as Array<Employee>) : [];
           state.error = msg;
         }
       )

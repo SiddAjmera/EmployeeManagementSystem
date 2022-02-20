@@ -1,9 +1,13 @@
-import axios from "./axios";
+import { AuthResponse } from "./../../models/auth";
 import { Employee } from "../../models/employee";
+import axios from "./axios";
 
-export async function login(email: string, password: string) {
+export async function login(
+  email: string,
+  password: string
+): Promise<AuthResponse> {
   try {
-    const loginResponse = await axios.post("auth/login", {
+    const loginResponse = await axios.post<AuthResponse>("auth/login", {
       email,
       password,
     });
@@ -19,9 +23,12 @@ export async function login(email: string, password: string) {
   }
 }
 
-export async function register(employee: Employee) {
+export async function register(employee: Employee): Promise<AuthResponse> {
   try {
-    const registerResponse = await axios.post("auth/register", employee);
+    const registerResponse = await axios.post<AuthResponse>(
+      "auth/register",
+      employee
+    );
     const response = await registerResponse.data;
     if (response.token) {
       axios.defaults.headers.common["Authorization"] = response.token;
@@ -32,11 +39,11 @@ export async function register(employee: Employee) {
   }
 }
 
-export async function loggedInUser() {
+export async function loggedInUser(): Promise<AuthResponse> {
   try {
-    const loggedInUserResponse = await axios.get("auth/employee");
+    const loggedInUserResponse = await axios.get<AuthResponse>("auth/employee");
     const response = await loggedInUserResponse.data;
-    return { employee: response };
+    return { employee: response as Employee } as AuthResponse;
   } catch (error: any) {
     return error.response.data;
   }

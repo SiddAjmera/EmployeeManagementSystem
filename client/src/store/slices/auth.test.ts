@@ -1,5 +1,6 @@
 import { AsyncStatus } from "../common";
-import authReducer, { AuthState, logout, toggleRememberMe } from "./auth";
+import { AuthState } from "../../models/auth";
+import authReducer, { logout, toggleRememberMe } from "./auth";
 
 describe("Auth Reducer", () => {
   const initialState: AuthState = {

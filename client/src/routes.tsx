@@ -1,8 +1,12 @@
-import { Navigate, useRoutes } from "react-router-dom";
+import { Navigate, useNavigate, useRoutes } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
-import { initDataIfAuthenticated, selectToken } from "./store/slices/auth";
+import {
+  initDataIfAuthenticated,
+  selectError,
+  selectToken,
+} from "./store/slices/auth";
 import { useAppSelector } from "./store/hooks";
 import DashboardLayout from "./layouts/dashboard";
 import Employees from "./pages/Employees";
@@ -12,14 +16,19 @@ import Register from "./pages/Register";
 
 export default function Router() {
   const token = useAppSelector(selectToken);
+  const error = useAppSelector(selectError);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (token) {
       dispatch(initDataIfAuthenticated());
     }
+    if (error === "Token is not valid") {
+      navigate("/login");
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token]);
+  }, [token, error]);
 
   return useRoutes([
     {
@@ -29,11 +38,12 @@ export default function Router() {
     },
     {
       path: "/",
-      element: token ? (
-        <Navigate to="/dashboard" replace />
-      ) : (
-        <LogoOnlyLayout />
-      ),
+      element:
+        token && error !== "Token is not valid" ? (
+          <Navigate to="/dashboard" replace />
+        ) : (
+          <LogoOnlyLayout />
+        ),
       children: [
         { path: "login", element: <Login /> },
         { path: "register", element: <Register /> },

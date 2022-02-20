@@ -1,34 +1,16 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import axios from "../apis/axios";
-import { RootState, AppThunk } from "../../store";
+import {
+  AuthResponse,
+  AuthState,
+  LoginFormValues,
+  RegisterFormValues,
+} from "../../models/auth";
 import { AsyncStatus } from "../common";
-import { Employee } from "../../models/employee";
 import { getEmployeesAsync } from "./employee";
 import { loggedInUser, login, register } from "../apis/auth";
-
-export interface AuthState {
-  token?: string;
-  rememberMe?: boolean;
-  employee?: Employee;
-  status: AsyncStatus;
-  error?: string;
-}
-
-export interface LoginFormValues {
-  email: string;
-  password: string;
-}
-
-export interface RegisterFormValues {
-  name: string;
-  surname: string;
-  phoneNumber: string;
-  email: string;
-  address: string;
-  title: string;
-  password: string;
-}
+import { RootState, AppThunk } from "../../store";
+import axios from "../apis/axios";
 
 const initialState: AuthState = {
   status: AsyncStatus.IDLE,
@@ -61,12 +43,6 @@ export const getLoggedInUserAsync = createAsyncThunk(
   }
 );
 
-export interface AuthResponse {
-  token: string;
-  employee: Employee;
-  msg?: string;
-}
-
 function postAuthSuccess(
   state: AuthState,
   { payload: { token, employee, msg } }: PayloadAction<AuthResponse>
@@ -89,7 +65,7 @@ export const authSlice = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     toggleRememberMe: (state: AuthState) => {
-      state.rememberMe = !state.rememberMe;
+      state.rememberMe = !!!state.rememberMe;
     },
     logout: (state: AuthState) => {
       state.token = undefined;

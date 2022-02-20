@@ -38,6 +38,7 @@ import {
 import Modal, { ModalAction, ModalProps } from "../components/Modal";
 import { Employee } from "../models/employee";
 import UserAvatar from "../components/UserAvatar";
+import { useEffect } from "hoist-non-react-statics/node_modules/@types/react";
 
 const TABLE_HEAD = [
   { id: "name", label: "Name", alignRight: false },
