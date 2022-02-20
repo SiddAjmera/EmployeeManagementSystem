@@ -1,15 +1,15 @@
-import { useEffect } from "react";
+import { Box, Link, Drawer, Typography } from "@mui/material";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { styled } from "@mui/material/styles";
-import { Box, Link, Drawer, Typography, Avatar } from "@mui/material";
+import { useEffect } from "react";
 
-import Logo from "../../components/Logo";
-import Scrollbar from "../../components/ScrollBar";
-import NavSection from "../../components/NavSection";
 import { MHidden, Width } from "../../components/@material-extend";
-import sidebarConfig from "./SidebarConfig";
 import { selectEmployee } from "../../store/slices/auth";
 import { useAppSelector } from "../../store/hooks";
+import Logo from "../../components/Logo";
+import NavSection from "../../components/NavSection";
+import sidebarConfig from "./SidebarConfig";
+import UserAvatar from "../../components/UserAvatar";
 
 const DRAWER_WIDTH = 280;
 
@@ -51,16 +51,7 @@ export default function DashboardSidebar({
   }, [pathname]);
 
   const renderContent = (
-    <Scrollbar
-      sx={{
-        height: "100%",
-        "& .simplebar-content": {
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-        },
-      }}
-    >
+    <>
       <Box sx={{ px: 2.5, py: 3 }}>
         <Box component={RouterLink} to="/" sx={{ display: "inline-flex" }}>
           <Logo />
@@ -70,10 +61,7 @@ export default function DashboardSidebar({
       <Box sx={{ mb: 5, mx: 2.5 }}>
         <Link underline="none" component={RouterLink} to="#">
           <AccountStyle>
-            <Avatar
-              src="https://minimal-kit-react.vercel.app/static/mock-images/avatars/avatar_default.jpg"
-              alt="photoURL"
-            />
+            <UserAvatar name={employee?.name} surname={employee?.surname} />
             <Box sx={{ ml: 2 }}>
               <Typography variant="subtitle2" sx={{ color: "text.primary" }}>
                 {employee?.name} {employee?.surname}
@@ -87,7 +75,7 @@ export default function DashboardSidebar({
       </Box>
 
       <NavSection navConfig={sidebarConfig} />
-    </Scrollbar>
+    </>
   );
 
   return (

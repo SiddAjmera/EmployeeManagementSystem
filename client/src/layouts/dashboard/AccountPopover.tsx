@@ -1,18 +1,12 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { alpha } from "@mui/material/styles";
-import {
-  Button,
-  Box,
-  Divider,
-  Typography,
-  Avatar,
-  IconButton,
-} from "@mui/material";
+import { Button, Box, Divider, Typography, IconButton } from "@mui/material";
 
 import { logout, selectEmployee } from "../../store/slices/auth";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import MenuPopover from "../../components/MenuPopover";
+import UserAvatar from "../../components/UserAvatar";
 
 export default function AccountPopover() {
   const anchorRef = useRef(null);
@@ -46,10 +40,7 @@ export default function AccountPopover() {
           }),
         }}
       >
-        <Avatar
-          src="https://minimal-kit-react.vercel.app/static/mock-images/avatars/avatar_default.jpg"
-          alt="photoURL"
-        />
+        <UserAvatar name={account?.name} surname={account?.surname} />
       </IconButton>
 
       <MenuPopover

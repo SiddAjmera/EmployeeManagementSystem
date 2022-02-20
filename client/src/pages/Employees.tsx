@@ -5,7 +5,6 @@ import {
   Card,
   Table,
   Stack,
-  Avatar,
   Button,
   Checkbox,
   TableRow,
@@ -41,6 +40,7 @@ import {
 } from "../store/slices/employee";
 import Modal, { ModalAction, ModalProps } from "../components/Modal";
 import { Employee } from "../models/employee";
+import UserAvatar from "../components/UserAvatar";
 
 const TABLE_HEAD = [
   { id: "name", label: "Name", alignRight: false },
@@ -260,10 +260,7 @@ export default function Employees() {
                               alignItems="center"
                               spacing={2}
                             >
-                              <Avatar
-                                alt={name}
-                                src="https://minimal-kit-react.vercel.app/static/mock-images/avatars/avatar_default.jpg"
-                              />
+                              <UserAvatar name={name} surname={surname} />
                               <Typography variant="subtitle2" noWrap>
                                 {name} {surname}
                               </Typography>

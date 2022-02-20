@@ -6,6 +6,8 @@ import AuthLayout from "../layouts/AuthLayout";
 import Page from "../components/Page";
 import { MHidden, Width } from "../components/@material-extend";
 import RegisterForm from "../components/authentication/RegisterForm";
+import RegisterIllustration from "../assets/register.svg";
+import PageIllustration from "../components/PageIllustration";
 
 const RootStyle = styled(Page)(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
@@ -52,10 +54,7 @@ export default function Register() {
           <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
             Manage employees more effectively with EMS
           </Typography>
-          <img
-            alt="register"
-            src="https://minimal-kit-react.vercel.app/static/illustrations/illustration_register.png"
-          />
+          <PageIllustration alt="register" src={RegisterIllustration} />
         </SectionStyle>
       </MHidden>
 

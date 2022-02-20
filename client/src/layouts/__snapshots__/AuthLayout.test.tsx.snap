@@ -10,11 +10,11 @@ exports[`AuthLayout Component renders the AuthLayout Component 1`] = `
   >
     <img
       className="MuiBox-root css-1ngw63v"
-      src="https://minimal-kit-react.vercel.app/static/logo.svg"
+      src="logo.svg"
     />
   </a>
   <p
-    className="MuiTypography-root MuiTypography-body2 css-128dl2h-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-body2 css-p34ji4-MuiTypography-root"
   >
     <h1>
       Some content

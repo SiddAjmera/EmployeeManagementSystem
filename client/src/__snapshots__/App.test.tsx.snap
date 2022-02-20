@@ -7,11 +7,6 @@ exports[`App Component renders the App Component 1`] = `
   <a
     href="/"
     onClick={[Function]}
-  >
-    <img
-      className="MuiBox-root css-1ngw63v"
-      src="https://minimal-kit-react.vercel.app/static/logo.svg"
-    />
-  </a>
+  />
 </header>
 `;

@@ -6,6 +6,8 @@ import AuthLayout from "../layouts/AuthLayout";
 import Page from "../components/Page";
 import { MHidden, Width } from "../components/@material-extend";
 import LoginForm from "../components/authentication/LoginForm";
+import PageIllustration from "../components/PageIllustration";
+import LoginIllustration from "../assets/login.svg";
 
 const RootStyle = styled(Page)(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
@@ -52,10 +54,7 @@ export default function Login() {
           <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
             Hi, Welcome Back
           </Typography>
-          <img
-            src="https://minimal-kit-react.vercel.app/static/illustrations/illustration_login.png"
-            alt="login"
-          />
+          <PageIllustration src={LoginIllustration} alt="login" />
         </SectionStyle>
       </MHidden>
 

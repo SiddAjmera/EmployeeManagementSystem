@@ -38,7 +38,6 @@ export default function MenuPopover({
           mt: 1.5,
           ml: 0.5,
           overflow: "inherit",
-          boxShadow: (theme: any) => theme.customShadows.z20,
           border: (theme: Theme) => `solid 1px ${theme.palette.grey[500]}`,
           width: 200,
           ...sx,

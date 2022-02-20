@@ -21,13 +21,9 @@ exports[`AccountPopover Component renders the AccountPopover Component 1`] = `
   type="button"
 >
   <div
-    className="MuiAvatar-root MuiAvatar-circular css-1wlk0hk-MuiAvatar-root"
+    className="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-1knm3nf-MuiAvatar-root"
   >
-    <img
-      alt="photoURL"
-      className="MuiAvatar-img css-1pqm26d-MuiAvatar-img"
-      src="https://minimal-kit-react.vercel.app/static/mock-images/avatars/avatar_default.jpg"
-    />
+    uu
   </div>
 </button>
 `;

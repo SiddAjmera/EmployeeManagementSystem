@@ -23,9 +23,7 @@ export default function LogoOnlyLayout() {
   return (
     <>
       <HeaderStyle>
-        <RouterLink to="/">
-          <Logo />
-        </RouterLink>
+        <RouterLink to="/" />
       </HeaderStyle>
       <Outlet />
     </>
