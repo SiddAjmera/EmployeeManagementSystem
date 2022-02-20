@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 import logo from "../logo.svg";
 interface LogoProps {
   sx?: { [key: string]: number };

@@ -1,13 +1,9 @@
 import { Link as RouterLink } from "react-router-dom";
-// material
 import { styled } from "@mui/material/styles";
-import { Typography } from "@mui/material";
-// components
-import Logo from "../components/Logo";
-//
-import { MHidden, Width } from "../components/@material-extend";
+import Typography from "@mui/material/Typography";
 
-// ----------------------------------------------------------------------
+import { MHidden, Width } from "../components/@material-extend";
+import Logo from "../components/Logo";
 
 const HeaderStyle = styled("header")(({ theme }) => ({
   top: 0,

@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { store } from "../store";
 import Employees from "./Employees";
 
-xdescribe("Employees Component", () => {
+describe("Employees Component", () => {
   test("renders the App Component", () => {
     const tree = create(
       <Provider store={store}>

@@ -1,8 +1,9 @@
-import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import { alpha, styled } from "@mui/material/styles";
-import { Box, Stack, AppBar, Toolbar, IconButton } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import Toolbar from "@mui/material/Toolbar";
 
-import { MHidden, Width } from "../../components/@material-extend";
 import AccountPopover from "./AccountPopover";
 
 const DRAWER_WIDTH = 280;
@@ -27,26 +28,10 @@ const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
   },
 }));
 
-interface DashboardNavbarProps {
-  onOpenSidebar: (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => void;
-}
-
-export default function DashboardNavbar({
-  onOpenSidebar,
-}: DashboardNavbarProps) {
+export default function DashboardNavbar() {
   return (
     <RootStyle>
       <ToolbarStyle>
-        <MHidden width={Width.lgUp}>
-          <IconButton
-            onClick={onOpenSidebar}
-            sx={{ mr: 1, color: "text.primary" }}
-          >
-            <MenuOpenIcon />
-          </IconButton>
-        </MHidden>
         <Box sx={{ flexGrow: 1 }} />
         <Stack
           direction="row"

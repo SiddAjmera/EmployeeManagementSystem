@@ -1,7 +1,7 @@
-import { create } from "react-test-renderer";
 import { BrowserRouter as Router } from "react-router-dom";
-
+import { create } from "react-test-renderer";
 import { Provider } from "react-redux";
+
 import { store } from "./store";
 import App from "./App";
 

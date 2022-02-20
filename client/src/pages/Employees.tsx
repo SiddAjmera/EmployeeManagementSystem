@@ -1,34 +1,31 @@
 import { filter } from "lodash";
 import { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
-import {
-  Card,
-  Table,
-  Stack,
-  Button,
-  Checkbox,
-  TableRow,
-  TableBody,
-  TableCell,
-  Container,
-  Typography,
-  TableContainer,
-  TablePagination,
-  DialogContentText,
-  Snackbar,
-  Alert,
-} from "@mui/material";
+import Alert from "@mui/material/Alert";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import Checkbox from "@mui/material/Checkbox";
+import Container from "@mui/material/Container";
+import DialogContentText from "@mui/material/DialogContentText";
+import Snackbar from "@mui/material/Snackbar";
+import Stack from "@mui/material/Stack";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TablePagination from "@mui/material/TablePagination";
+import TableRow from "@mui/material/TableRow";
+import Typography from "@mui/material/Typography";
 
-import Page from "../components/Page";
 import Scrollbar from "../components/ScrollBar";
 import SearchNotFound from "../components/SearchNotFound";
 import {
   EmployeesListHead,
   EmployeesListToolbar,
   EmployeesMoreMenu,
-} from "../components/_dashboard/employees";
-import { Order } from "../components/_dashboard/employees/EmployeesListHead";
-import EmployeeForm from "../components/_dashboard/employees/EmployeeForm";
+} from "../components/employees";
+import { Order } from "../components/employees/EmployeesListHead";
+import EmployeeForm from "../components/employees/EmployeeForm";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import {
   deleteEmployeeAsync,
@@ -182,137 +179,130 @@ export default function Employees() {
   const isUserNotFound = filteredUsers.length === 0;
 
   return (
-    <Page title="Employees">
-      <Container>
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="space-between"
-          mb={5}
+    <Container>
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="space-between"
+        mb={5}
+      >
+        <Typography variant="h4" gutterBottom>
+          Employees
+        </Typography>
+        <Button
+          variant="contained"
+          onClick={() => {
+            dispatch(setEmployeeInQuestion({ employee: undefined }));
+            setOpenEmployeeFormModal(true);
+          }}
+          startIcon={<AddIcon />}
         >
-          <Typography variant="h4" gutterBottom>
-            Employees
-          </Typography>
-          <Button
-            variant="contained"
-            onClick={() => {
-              dispatch(setEmployeeInQuestion({ employee: undefined }));
-              setOpenEmployeeFormModal(true);
-            }}
-            startIcon={<AddIcon />}
-          >
-            Add New Employee
-          </Button>
-        </Stack>
+          Add New Employee
+        </Button>
+      </Stack>
 
-        <Card>
-          <EmployeesListToolbar
-            numSelected={selected.length}
-            filterName={filterName}
-            onFilterName={handleFilterByName}
-            handleMultipleUsersDelete={handleDeleteMultipleUsers}
-          />
+      <Card>
+        <EmployeesListToolbar
+          numSelected={selected.length}
+          filterName={filterName}
+          onFilterName={handleFilterByName}
+          handleMultipleUsersDelete={handleDeleteMultipleUsers}
+        />
 
-          <Scrollbar>
-            <TableContainer sx={{ minWidth: 800 }}>
-              <Table>
-                <EmployeesListHead
-                  order={order}
-                  orderBy={orderBy}
-                  headLabel={TABLE_HEAD}
-                  rowCount={employees.length}
-                  numSelected={selected.length}
-                  onRequestSort={handleRequestSort}
-                  onSelectAllClick={handleSelectAllClick}
-                />
+        <Scrollbar>
+          <TableContainer sx={{ minWidth: 800 }}>
+            <Table>
+              <EmployeesListHead
+                order={order}
+                orderBy={orderBy}
+                headLabel={TABLE_HEAD}
+                rowCount={employees.length}
+                numSelected={selected.length}
+                onRequestSort={handleRequestSort}
+                onSelectAllClick={handleSelectAllClick}
+              />
+              <TableBody>
+                {filteredUsers
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row: any) => {
+                    const { _id, name, surname, phoneNumber, address, title } =
+                      row;
+                    const isItemSelected = selected.indexOf(_id) !== -1;
+
+                    return (
+                      <TableRow
+                        hover
+                        key={_id}
+                        tabIndex={-1}
+                        role="checkbox"
+                        selected={isItemSelected}
+                        aria-checked={isItemSelected}
+                      >
+                        <TableCell padding="checkbox">
+                          <Checkbox
+                            checked={isItemSelected}
+                            onChange={(event) => handleClick(event, _id)}
+                          />
+                        </TableCell>
+                        <TableCell component="th" scope="row" padding="none">
+                          <Stack
+                            direction="row"
+                            alignItems="center"
+                            spacing={2}
+                          >
+                            <UserAvatar name={name} surname={surname} />
+                            <Typography variant="subtitle2" noWrap>
+                              {name} {surname}
+                            </Typography>
+                          </Stack>
+                        </TableCell>
+                        <TableCell align="left">{title}</TableCell>
+                        <TableCell align="left">{phoneNumber}</TableCell>
+                        <TableCell align="left">{address}</TableCell>
+                        <TableCell align="right">
+                          <EmployeesMoreMenu
+                            handleEdit={() => {
+                              dispatch(
+                                setEmployeeInQuestion({ employee: row })
+                              );
+                              setOpenEmployeeFormModal(true);
+                            }}
+                            handleDelete={() => {
+                              dispatch(
+                                setEmployeeInQuestion({ employee: row })
+                              );
+                              setOpenEmployeeDeleteConfirmationModal(true);
+                            }}
+                          />
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+              </TableBody>
+              {isUserNotFound && (
                 <TableBody>
-                  {filteredUsers
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((row: any) => {
-                      const {
-                        _id,
-                        name,
-                        surname,
-                        phoneNumber,
-                        address,
-                        title,
-                      } = row;
-                      const isItemSelected = selected.indexOf(_id) !== -1;
-
-                      return (
-                        <TableRow
-                          hover
-                          key={_id}
-                          tabIndex={-1}
-                          role="checkbox"
-                          selected={isItemSelected}
-                          aria-checked={isItemSelected}
-                        >
-                          <TableCell padding="checkbox">
-                            <Checkbox
-                              checked={isItemSelected}
-                              onChange={(event) => handleClick(event, _id)}
-                            />
-                          </TableCell>
-                          <TableCell component="th" scope="row" padding="none">
-                            <Stack
-                              direction="row"
-                              alignItems="center"
-                              spacing={2}
-                            >
-                              <UserAvatar name={name} surname={surname} />
-                              <Typography variant="subtitle2" noWrap>
-                                {name} {surname}
-                              </Typography>
-                            </Stack>
-                          </TableCell>
-                          <TableCell align="left">{title}</TableCell>
-                          <TableCell align="left">{phoneNumber}</TableCell>
-                          <TableCell align="left">{address}</TableCell>
-                          <TableCell align="right">
-                            <EmployeesMoreMenu
-                              handleEdit={() => {
-                                dispatch(
-                                  setEmployeeInQuestion({ employee: row })
-                                );
-                                setOpenEmployeeFormModal(true);
-                              }}
-                              handleDelete={() => {
-                                dispatch(
-                                  setEmployeeInQuestion({ employee: row })
-                                );
-                                setOpenEmployeeDeleteConfirmationModal(true);
-                              }}
-                            />
-                          </TableCell>
-                        </TableRow>
-                      );
-                    })}
+                  <TableRow>
+                    <TableCell align="center" colSpan={6} sx={{ py: 3 }}>
+                      <SearchNotFound searchQuery={filterName} />
+                    </TableCell>
+                  </TableRow>
                 </TableBody>
-                {isUserNotFound && (
-                  <TableBody>
-                    <TableRow>
-                      <TableCell align="center" colSpan={6} sx={{ py: 3 }}>
-                        <SearchNotFound searchQuery={filterName} />
-                      </TableCell>
-                    </TableRow>
-                  </TableBody>
-                )}
-              </Table>
-            </TableContainer>
-          </Scrollbar>
+              )}
+            </Table>
+          </TableContainer>
+        </Scrollbar>
 
-          <TablePagination
-            rowsPerPageOptions={[5, 10, 25]}
-            component="div"
-            count={employees.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-        </Card>
-      </Container>
+        <TablePagination
+          rowsPerPageOptions={[5, 10, 25]}
+          component="div"
+          count={employees.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      </Card>
+
       {openEmployeeFormModal && (
         <EmployeeForm
           open={openEmployeeFormModal}
@@ -357,6 +347,6 @@ export default function Employees() {
           </Alert>
         </Snackbar>
       )}
-    </Page>
+    </Container>
   );
 }

@@ -15,8 +15,8 @@ import {
   selectEmployee,
   selectError,
   setEmployeeInQuestion,
-} from "../../../store/slices/employee";
-import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+} from "../../store/slices/employee";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
 interface EmployeeFormProps {
   open: boolean;

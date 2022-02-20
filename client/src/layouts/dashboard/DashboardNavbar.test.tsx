@@ -12,7 +12,7 @@ describe("DashboardNavbar Component", () => {
       <Provider store={store}>
         <Router>
           <ThemeConfig>
-            <DashboardNavbar onOpenSidebar={() => {}} />
+            <DashboardNavbar />
           </ThemeConfig>
         </Router>
       </Provider>

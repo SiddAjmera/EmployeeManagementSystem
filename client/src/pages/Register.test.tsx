@@ -2,18 +2,19 @@ import { create } from "react-test-renderer";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 
+import ThemeConfig from "../theme";
 import { store } from "../store";
-import Label, { Color, Variant } from "./Label";
+import Register from "./Register";
 
-describe("Label Component", () => {
-  test("renders the Label Component", () => {
+describe("Register Component", () => {
+  test("renders the Register Component", () => {
     const tree = create(
       <Provider store={store}>
-        <Router>
-          <Label color={Color.default} variant={Variant.ghost}>
-            Label Text
-          </Label>
-        </Router>
+        <ThemeConfig>
+          <Router>
+            <Register />
+          </Router>
+        </ThemeConfig>
       </Provider>
     );
 

@@ -7,37 +7,6 @@ exports[`DashboardNavbar Component renders the DashboardNavbar Component 1`] = `
   <div
     className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-47ifef-MuiToolbar-root"
   >
-    <button
-      className="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-rcche3-MuiButtonBase-root-MuiIconButton-root"
-      disabled={false}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onContextMenu={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={0}
-      type="button"
-    >
-      <svg
-        aria-hidden={true}
-        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-        data-testid="MenuOpenIcon"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M3 18h13v-2H3v2zm0-5h10v-2H3v2zm0-7v2h13V6H3zm18 9.59L17.42 12 21 8.41 19.59 7l-5 5 5 5L21 15.59z"
-        />
-      </svg>
-    </button>
     <div
       className="MuiBox-root css-i9gxme"
     />

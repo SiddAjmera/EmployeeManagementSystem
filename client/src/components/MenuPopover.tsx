@@ -1,5 +1,6 @@
-import { Popover, Theme } from "@mui/material";
 import { alpha, styled } from "@mui/material/styles";
+import Popover from "@mui/material/Popover";
+import { Theme } from "@mui/material";
 
 const ArrowStyle = styled("span")(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {

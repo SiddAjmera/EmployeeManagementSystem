@@ -1,27 +1,23 @@
-import * as Yup from "yup";
-import { useState } from "react";
 import { useFormik, Form, FormikProvider } from "formik";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import * as Yup from "yup";
+import Alert from "@mui/material/Alert";
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
+import LoadingButton from "@mui/lab/LoadingButton";
+import Snackbar from "@mui/material/Snackbar";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { useNavigate } from "react-router-dom";
-// material
-import {
-  Stack,
-  TextField,
-  IconButton,
-  InputAdornment,
-  Snackbar,
-  Alert,
-} from "@mui/material";
-import { LoadingButton } from "@mui/lab";
+
 import {
   registerAsync,
   selectError,
   selectToken,
 } from "../../store/slices/auth";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-
-// ----------------------------------------------------------------------
 
 export default function RegisterForm() {
   const navigate = useNavigate();

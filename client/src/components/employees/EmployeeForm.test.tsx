@@ -2,18 +2,20 @@ import { create } from "react-test-renderer";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 
-import ThemeConfig from "../../theme";
 import { store } from "../../store";
-import DashboardSidebar from "./DashboardSidebar";
+import EmployeeForm from "./EmployeeForm";
 
-describe("DashboardSidebar Component", () => {
-  test("renders the DashboardSidebar Component", () => {
+xdescribe("EmployeeForm Component", () => {
+  test("renders the EmployeeForm Component", () => {
     const tree = create(
       <Provider store={store}>
         <Router>
-          <ThemeConfig>
-            <DashboardSidebar isOpenSidebar={false} onCloseSidebar={() => {}} />
-          </ThemeConfig>
+          <EmployeeForm
+            open={true}
+            setOpen={() => {}}
+            setMessage={() => {}}
+            setSnackbarOpen={() => {}}
+          />
         </Router>
       </Provider>
     );

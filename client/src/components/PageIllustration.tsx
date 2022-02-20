@@ -13,5 +13,5 @@ export default function StyledIllustration({
   src,
   alt,
 }: StyledIllustrationProps) {
-  return <ImageWithPadding src={src} />;
+  return <ImageWithPadding src={src} alt={alt} />;
 }

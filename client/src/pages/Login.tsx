@@ -1,15 +1,18 @@
 import { Link as RouterLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
-import { Card, Stack, Link, Container, Typography } from "@mui/material";
+import Card from "@mui/material/Card";
+import Container from "@mui/material/Container";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 
-import AuthLayout from "../layouts/AuthLayout";
-import Page from "../components/Page";
 import { MHidden, Width } from "../components/@material-extend";
+import AuthLayout from "../layouts/AuthLayout";
 import LoginForm from "../components/authentication/LoginForm";
-import PageIllustration from "../components/PageIllustration";
 import LoginIllustration from "../assets/login.svg";
+import PageIllustration from "../components/PageIllustration";
 
-const RootStyle = styled(Page)(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
     display: "flex",
   },
@@ -36,7 +39,7 @@ const ContentStyle = styled("div")(({ theme }) => ({
 
 export default function Login() {
   return (
-    <RootStyle title="Login | Minimal-UI">
+    <RootStyle>
       <AuthLayout>
         Don’t have an account? &nbsp;
         <Link

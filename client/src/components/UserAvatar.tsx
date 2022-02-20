@@ -1,4 +1,5 @@
 import Avatar from "@mui/material/Avatar";
+
 import { stringAvatar } from "../utils";
 
 interface UserAvatarProps {

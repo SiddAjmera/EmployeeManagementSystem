@@ -1,15 +1,18 @@
-import { Box, Card, Link, Container, Typography } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import Container from "@mui/material/Container";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
 
 import { MHidden, Width } from "../components/@material-extend";
 import AuthLayout from "../layouts/AuthLayout";
-import Page from "../components/Page";
 import PageIllustration from "../components/PageIllustration";
 import RegisterForm from "../components/authentication/RegisterForm";
 import RegisterIllustration from "../assets/register.svg";
 
-const RootStyle = styled(Page)(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
     display: "flex",
   },
@@ -36,7 +39,7 @@ const ContentStyle = styled("div")(({ theme }) => ({
 
 export default function Register() {
   return (
-    <RootStyle title="Register | EMS">
+    <RootStyle>
       <AuthLayout>
         Already have an account? &nbsp;
         <Link

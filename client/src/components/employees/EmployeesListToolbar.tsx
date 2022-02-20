@@ -1,21 +1,17 @@
-import SearchIcon from "@mui/icons-material/Search";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { styled } from "@mui/material/styles";
-import {
-  Box,
-  Toolbar,
-  Tooltip,
-  IconButton,
-  Typography,
-  OutlinedInput,
-  InputAdornment,
-  DialogContentText,
-} from "@mui/material";
+import Box from "@mui/material/Box";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import DialogContentText from "@mui/material/DialogContentText";
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import SearchIcon from "@mui/icons-material/Search";
+import Toolbar from "@mui/material/Toolbar";
+import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
 
-import Modal, { ModalProps } from "../../Modal";
 import { useState } from "react";
-
-// ----------------------------------------------------------------------
+import Modal, { ModalProps } from "../Modal";
 
 const RootStyle = styled(Toolbar)(({ theme }) => ({
   height: 96,
